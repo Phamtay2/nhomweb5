@@ -1,0 +1,486 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <title>Trang quản trị</title>
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css" media="screen" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css" media="screen" />
+<body>
+    <div id="app">
+        <header id="header" class="header fixed-top d-flex align-items-center">
+
+            <div class="d-flex align-items-center justify-content-between">
+                <a href="index.html" class="logo d-flex align-items-center">
+                    <img src="assets/img/alex-high-resolution-logo-transparent.png" alt="" width="50px">
+                    <span class="d-none d-lg-block">AlexAdmin</span>
+                </a>
+                      
+                <button id="toggleButton"><i class="bi bi-list toggle-sidebar-btn"></i></button>
+                    </div><!-- End Logo -->
+                
+                    <div class="search-bar">
+                      <form class="search-form d-flex align-items-center" method="POST" action="#">
+                        <input type="text" tendm="query" placeholder="Search" title="Enter search keyword">
+                        <button type="submit" title="Search"><i class="bi bi-search"></i></button>
+                      </form>
+                    </div><!-- End Search Bar -->
+                
+                    <nav class="header-nav ms-auto">
+                      <ul class="d-flex align-items-center">
+                
+                        <li class="nav-item d-block d-lg-none">
+                          <a class="nav-link nav-icon search-bar-toggle " href="#">
+                            <i class="bi bi-search"></i>
+                          </a>
+                        </li><!-- End Search Icon-->
+                
+                
+                        <li class="nav-item dropdown pe-3">
+                
+                          <a class="nav-link nav-profile d-flex align-items-center pe-0" href="#" data-bs-toggle="dropdown">
+                            <img src="https://cdn.vectorstock.com/i/1000v/47/93/person-icon-iconic-design-vector-18314793.jpg" alt="Profile" class="rounded-circle">
+                    <span class="d-none d-md-block dropdown-toggle ps-2">TayAndDuong</span>
+                          </a><!-- End Profile Iamge Icon -->
+                
+                          <ul class="dropdown-menu dropdown-menu-end dropdown-menu-arrow profile">
+                            <li class="dropdown-header">
+                              <h6>TayAndDuong</h6>
+                              <span>Quản trị viên</span>
+                            </li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center" href="changepassword.php">
+                                <i class="bi bi-person"></i>
+                                <span>Đổi mật khẩu</span>
+                              </a>
+                            </li>
+                            <li>
+                              <hr class="dropdown-divider">
+                            </li>
+                
+                            <li>
+                              <a class="dropdown-item d-flex align-items-center" href="?action=logout" onClick = "return confirm('Bạn có chắc muốn đăng xuất không?')">
+                                <i class="bi bi-box-arrow-right"></i>
+                                <span>Đăng xuất</span>
+                              </a>
+                            </li>
+                
+                          </ul><!-- End Profile Dropdown Items -->
+                        </li><!-- End Profile Nav -->
+                
+                      </ul>
+                    </nav><!-- End Icons Navigation -->
+                
+                  </header><!-- End Header -->
+                
+                <!-- Dashboard -->
+                <div class="d-flex flex-column flex-lg-row h-lg-full bg-surface-secondary content">
+                    <!-- Vertical Navbar -->
+                    <nav class="navbar show navbar-vertical h-lg-screen navbar-expand-lg px-0 py-3 navbar-light bg-white border-bottom border-bottom-lg-0 border-end-lg" id="navbarVertical">
+                        <div class="container-fluid">
+                            <!-- Toggler -->
+                            <button class="navbar-toggler ms-n2" type="button" data-bs-toggle="collapse" data-bs-target="#sidebarCollapse" aria-controls="sidebarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" id="sidebarCollapse">
+                                <!-- Navigation -->
+                                <ul class="navbar-nav nav1">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="index.html">
+                                            <i class="bi bi-house"></i> Trang chủ
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="danhmuc.html">
+                                            <i class="bi bi-folder"></i> Danh mục
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="sanpham.html">
+                                            <i class="bi bi-box"></i> Sản phẩm
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="taikhoan.html">
+                                            <i class="bi bi-person-square"></i> Tài khoản
+                                        </a>
+                                    </li>
+                                    
+                                </ul>
+                                <!-- Divider -->
+                                <hr class="navbar-divider my-5 opacity-20">
+                            </div>
+                        </div>
+                    </nav>
+                    <!-- Main content -->
+                    <div class="h-screen flex-grow-1 overflow-y-lg-auto">
+                        <!-- Main -->
+                        <main class="py-6 bg-surface-secondary">
+                            <div class="container-fluid">
+                                
+                            
+                
+                <div class="card shadow border-0 mb-7">
+                                    <div class="row">
+                                        <div class="col-sm-6 col-12 text-sm-start">
+                                            <div class="card-header">
+                                                <h5 class="mb-0">Quản lý sản phẩm</h5>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 col-12 text-sm-end">
+                                            <div class="mx-n1" style="padding: 20px;">
+                                                <a href="#" class="btn d-inline-flex btn-sm btn-neutral border-base mx-1">
+                                                    <span class=" pe-2">
+                                                        <i class="bi bi-pencil"></i>
+                                                    </span>
+                                                    <span>Chỉnh sửa</span>
+                                                </a>
+                                                <a href="#" class="btn d-inline-flex btn-sm btn-danger mx-1" onclick="showaddModal()">
+                                                    <span class=" pe-2">
+                                                        <i class="bi bi-plus"></i>
+                                                    </span>
+                                                    <span>Thêm</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table class="table table-hover table-nowrap">
+                                            <thead class="thead-light">
+                                                <tr>
+                                                    <th scope="col">Id</th>
+                                                    <th scope="col">Mã sp</th>
+                                                    <th scope="col">Tên sp</th>
+                                                    <th scope="col">Danh mục</th>
+                                                    <th scope="col">Giá nhập</th>
+                                                    <th scope="col">Giá bán</th>
+                                                    <th scope="col">Giá km</th>
+                                                    <th scope="col">Số lượng</th>
+                                                    <th scope="col">Hiển thị</th>
+                                                    <th scope="col"></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="sanpham in sanphams">
+                                                  <td>{{sanpham.id}}</td>
+                                                  <td>{{sanpham.masp}}</td>
+                                                  <td>{{sanpham.tensp}}</td>
+                                                  <td>{{sanpham.danhmuc}}</td>
+                                                  <td>{{sanpham.gianhap}}</td>
+                                                  <td>{{sanpham.giaban}}</td>
+                                                  <td>{{sanpham.giakm}}</td>
+                                                  <td>{{sanpham.soluong}}</td>
+                                                  <td>{{sanpham.hienthi}}</td>
+
+                                                    <td><button class="btn btn-primary btn-sm" @click="getsanphamById(sanpham.id)">Cập nhật</button>
+                                                    <button @click="deletesanphams(sanpham.id)" class="btn btn-secondary btn-sm">Xóa</button></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- <div class="card-footer border-0 py-5">
+                                        <span class="text-muted text-sm">Showing 10 items out of 250 results found</span>
+                                    </div> -->
+                                </div>  
+                                
+        
+                            </div>
+                        </main>
+                    </div>
+                </div>
+                <div class="modal-overlay" id="modalAdd">
+                    <div class="modaladd">
+                      <div class="modal-headerr">
+                        <h2>Danh mục</h2>
+                        <div>
+                              <button type="button" class="btn btn-primary" @click="addNewsanpham()">Thêm mới</button>
+                              <button type="button" class="btn btn-secondary" onclick="closeaddModal()">Thoát</button>
+                          </div>
+                      </div>
+                      <div class="modal-bodyy">
+                          <form class="form-group row" enctype="multipart/form-data" id="myForm">
+                   
+                            <label class="col-sm-2 col-form-label">Mã sp:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.masp" id="masp" rows="1"></textarea>
+                            </div> 
+                            <label class="col-sm-2 col-form-label">Tên sp:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.tensp" id="tensp" rows="1"></textarea>
+                            </div> 
+                            <label class="col-sm-2 col-form-label">Danh mục:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.danhmuc" id="danhmuc" rows="1"></textarea>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Giá nhập:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.gianhap" id="gianhap" rows="1"></textarea>
+                            </div>    
+                            <label class="col-sm-2 col-form-label">Giá bán:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.giaban" id="giaban" rows="1"></textarea>
+                            </div> 
+                            <label class="col-sm-2 col-form-label">Giá khuyến mãi:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.giakm" id="giakm" rows="1"></textarea>
+                            </div> 
+                            <label class="col-sm-2 col-form-label">Số lượng:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.soluong" id="soluong" rows="1"></textarea>
+                            </div>
+                            <label class="col-sm-2 col-form-label">Hiển thị:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.hienthi" id="hienthi" rows="1"></textarea>
+                            </div>     
+                            <label class="col-sm-2 col-form-label">Mô tả:</label>
+                            <div class="col-sm-10">
+                            <textarea class="form-control" v-model="newsanpham.mota" id="mota" rows="1"></textarea>
+                            </div>  
+                                                                 
+                        </form>
+                      </div>
+                      <div class="modal-footerr">
+                          <div></div>
+                          <div>
+                              <button type="button" class="btn btn-primary" @click="addNewsanpham()">Thêm mới</button>
+                              <button type="button" class="btn btn-secondary" onclick="closeaddModal()">Thoát</button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="modal-overlay" id="modalUpdate">
+                    <div class="modaladd">
+                      <div class="modal-headerr">
+                        <h2>Cập nhật Sản Phẩm</h2>
+                        <div>
+                              <button type="button" class="btn btn-primary" @click="Updatesanpham()">Cập nhật</button>
+                              <button type="button" class="btn btn-secondary" onclick="closeupdateModal()">Thoát</button>
+                          </div>
+                      </div>
+                      <div class="modal-bodyy">
+                        <form class="form-group row" enctype="multipart/form-data" id="myForm">
+                          <label class="col-sm-2 col-form-label">Mã sp:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.masp" id="masp_update" rows="1"></textarea>
+                          </div>  
+                          <label class="col-sm-2 col-form-label">Tên sản phẩm:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.tensp" id="tensp_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Danh mục:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.danhmuc" id="danhmuc_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Giá nhập:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.gianhap" id="gianhap_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Giá bán:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.giaban" id="giaban_update" rows="1"></textarea>
+                          </div>  
+                          <label class="col-sm-2 col-form-label">Giá km:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.giakm" id="giakm_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Số lượng:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.soluong" id="soluong_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Hiển thị:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.hienthi" id="hienthi_update" rows="1"></textarea>
+                          </div> 
+                          <label class="col-sm-2 col-form-label">Mô tả:</label>
+                          <div class="col-sm-10">
+                            <textarea class="form-control" v-model="currentsp.mota" id="mota_update" rows="1"></textarea>
+                          </div> 
+                        
+                          <div style="display: none;">
+                            <textarea class="form-control" v-model="currentsp.id" id="id_update" rows="1"></textarea>
+                          </div>                        
+                          </form>
+                          
+                      </div>
+                      <div class="modal-footerr">
+                          <div></div>
+                          <div>
+                              <button type="button" class="btn btn-primary" @click="Updatesanpham()">Cập nhật</button>
+                              <button type="button" class="btn btn-secondary" onclick="closeupdateModal()">Thoát</button>
+                          </div>
+                      </div>
+                    </div>
+                  </div>
+    </div>
+        </body>
+        
+        
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet"/>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+        <script src="https://cdn.jsdelivr.net/npm/diacritics"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+             
+        <script src="myjs.js" type="text/javascript"></script>      
+        <!-- Include Vue production build -->
+<script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
+
+<!-- Include Axios via CDN -->
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+<script>
+    const API_URL = "http://localhost/quanlybanhang/";
+
+    const app = Vue.createApp({
+      data() {
+        return {
+        title: "San Pham",
+        sanphams: [],
+        currentsp: {
+          id: null,
+          masp: '',
+          tensp: '',
+          danhmuc: '',
+          gianhap: '',
+          giaban: '',
+          giakm: '',
+          soluong: '',
+          hienthi: '',
+          thoigian: '',
+          mota: ''
+        },
+        newsanpham: {
+          masp: '',
+          tensp: '',
+          danhmuc: '',
+          gianhap: '',
+          giaban: '',
+          giakm: '',
+          soluong: '',
+          hienthi: '',
+          thoigian: '',
+          mota: ''
+        }
+        }
+      },
+      methods: {
+        // Lấy tất cả các ghi chú
+        async refreshNData() {
+          axios.get(API_URL + "admin/api/product/read.php").then(
+            (response) => {
+              this.sanphams = response.data.data;
+            }
+          );
+        },
+
+        async addNewsanpham() {
+      
+        var formData = {
+          masp: this.newsanpham.masp,
+          tensp: this.newsanpham.tensp,
+          danhmuc: this.newsanpham.danhmuc,
+          gianhap: this.newsanpham.gianhap,
+          giaban: this.newsanpham.giaban,
+          giakm: this.newsanpham.giakm,
+          soluong: this.newsanpham.soluong,
+          hienthi: this.newsanpham.hienthi,
+          mota: this.newsanpham.mota,
+        };
+
+        try {
+            const response = await axios.post(API_URL + "admin/api/product/create.php", formData);
+            this.refreshNData();
+            alert(response.data);
+            this.this.newsanpham.masp = '';
+            this.this.newsanpham.tensp = '';
+            this.this.newsanpham.danhmuc = '';
+            this.this.newsanpham.gianhap = '';
+            this.this.newsanpham.giaban = '';
+            this.this.newsanpham.giakm = '';
+            this.this.newsanpham.soluong = '';
+            this.this.newsanpham.hienthi = '';
+            this.this.newsanpham.mota = '';
+        } catch (error) {
+            console.error("Error adding sanpham:", error);
+        }
+        },
+
+        // Xóa ghi chú
+        async deletesanphams(id) {
+            var formData = {
+            id: id,
+        };
+          axios.post(API_URL + "admin/api/product/delete.php", formData).then(
+            (response) => {
+              this.refreshNData();
+              alert(response.data);
+            }
+          );
+        },
+
+        // Lấy ghi chú theo ID
+        async getsanphamById(id) {
+          document.getElementById('modalUpdate').style.display = 'block';
+          axios.get(API_URL + "admin/api/product/show.php?id=" + id).then(
+            (response) => {
+              this.currentsp = response.data;
+              console.log(response.data);
+            }
+          );
+        },
+
+        // Cập nhật ghi chú
+        async Updatesanpham() {
+            var formData = {
+              masp: this.currentsp.masp,
+              tensp: this.currentsp.tensp,
+              danhmuc: this.currentsp.danhmuc,
+              gianhap: this.currentsp.gianhap,
+              giaban: this.currentsp.giaban,
+              giakm: this.currentsp.giakm,
+              soluong: this.currentsp.soluong,
+              hienthi: this.currentsp.hienthi,
+              mota: this.currentsp.mota,
+              id: this.currentsp.id,
+        };
+
+          axios.post(API_URL + "admin/api/product/update.php", formData).then(
+            (response) => {
+              this.refreshNData();
+              alert(response.data);
+            }
+          );
+          document.getElementById('modalUpdate').style.display = 'none';
+        }
+      },
+
+      // Khi khởi tạo sẽ tự động gọi lấy danh sách ghi chú
+      mounted: function () {
+        this.refreshNData();
+      }
+    });
+
+    app.mount('#app');
+</script>
+
+        
+</body>
+</html>
+        
+
+    
+            
+          
+    
+    
